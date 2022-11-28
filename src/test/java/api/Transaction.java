@@ -36,7 +36,7 @@ public class Transaction extends Setup {
         this.currentBalance = currentBalance;
     }
 
-    public String depositMoney(String from_account, String to_account, int amount, String balanceHolder) throws ConfigurationException {
+    public String depositMoney(String from_account, String to_account, int amount, String balanceHolder) throws ConfigurationException, InterruptedException {
         RestAssured.baseURI = prop.getProperty("BASE_URI");
         Response res = given()
                 .contentType("application/json")
@@ -52,10 +52,11 @@ public class Transaction extends Setup {
         setCurrentBalance(response.get("currentBalance"));
         Utils.setVariables(balanceHolder + "_BALANCE", String.valueOf(amount));
         System.out.println(res.asString());
+        Thread.sleep(2000);
         return message;
     }
 
-    public String cashOut(String from_account, String to_account, int amount) throws ConfigurationException {
+    public String cashOut(String from_account, String to_account, int amount) throws ConfigurationException, InterruptedException {
         RestAssured.baseURI = prop.getProperty("BASE_URI");
         Response res = given()
                 .contentType("application/json")
@@ -70,10 +71,12 @@ public class Transaction extends Setup {
         String message = response.get("message");
         setCurrentBalance(response.get("currentBalance"));
         setCashOutFee(response.get("fee"));
+        System.out.println(res.asString());
+        Thread.sleep(2000);
         return message;
     }
 
-    public String checkBalance(String phoneNumber) throws ConfigurationException {
+    public String checkBalance(String phoneNumber) throws ConfigurationException, InterruptedException {
         RestAssured.baseURI = prop.getProperty("BASE_URI");
         Response res = given()
                 .contentType("application/json")
@@ -87,6 +90,7 @@ public class Transaction extends Setup {
         System.out.println(res.asString());
         String message = response.get("message");
         setCurrentBalance(response.get("balance"));
+        Thread.sleep(2000);
         return message;
     }
 }
