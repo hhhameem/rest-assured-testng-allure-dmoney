@@ -1,8 +1,0 @@
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="DMONEY API Transaction Automation Suite">
-    <test name="Users can create transaction successfully">
-        <classes>
-            <class name="testRunners.TransactionTestRunner"/>
-        </classes>
-    </test>
-</suite>

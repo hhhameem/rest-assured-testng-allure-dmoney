@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="testRunners.TransactionTestRunner" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-11-28T10:40:12" hostname="hhhameem-thinkpad" time="6.077">
-  <properties/>
-  <testcase name="checkAgainUserBalance" classname="testRunners.TransactionTestRunner" time="6.077"/>
-  <system-out><![CDATA[{"message":"User balance","balance":15}
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

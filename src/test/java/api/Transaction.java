@@ -51,7 +51,6 @@ public class Transaction extends Setup {
         String message = response.get("message");
         setCurrentBalance(response.get("currentBalance"));
         Utils.setVariables(balanceHolder + "_BALANCE", String.valueOf(amount));
-        System.out.println(res.asString());
         Thread.sleep(2000);
         return message;
     }
@@ -71,7 +70,6 @@ public class Transaction extends Setup {
         String message = response.get("message");
         setCurrentBalance(response.get("currentBalance"));
         setCashOutFee(response.get("fee"));
-        System.out.println(res.asString());
         Thread.sleep(2000);
         return message;
     }
@@ -87,7 +85,6 @@ public class Transaction extends Setup {
                 .then()
                 .assertThat().statusCode(200).extract().response();
         JsonPath response = res.jsonPath();
-        System.out.println(res.asString());
         String message = response.get("message");
         setCurrentBalance(response.get("balance"));
         Thread.sleep(2000);
